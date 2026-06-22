@@ -73,13 +73,17 @@ contatoForm.addEventListener("submit", async (e) => {
     };
 
     if (id) {
-        // Operação de UPDATE
         const { error } = await _supabase.from("contato").update(payload).eq("id", id);
-        if (error) alert("Erro ao atualizar contato");
+        if (error) {
+            console.error(error);
+            alert("Erro ao atualizar: " + error.message); // Mostra o erro real
+        }
     } else {
-        // Operação de INSERT
         const { error } = await _supabase.from("contato").insert([payload]);
-        if (error) alert("Erro ao inserir contato");
+        if (error) {
+            console.error(error);
+            alert("Erro ao inserir: " + error.message); // Mostra o erro real
+        }
     }
 
     clearForm();
