@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Contatos</title>
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --background: #f8fafc;
+            --text: #1e293b;
+        }
+        body { font-family: system-ui, sans-serif; background-color: var(--background); color: var(--text); margin: 20px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px -1px #00000010; }
+        h2 { border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; }
+        .search-box, .form-box { background: #f1f5f9; padding: 15px; border-radius: 6px; margin-bottom: 20px; }
+        .form-group { margin-bottom: 12px; }
+        label { display: block; font-weight: bold; margin-bottom: 5px; font-size: 14px; }
+        input[type="text"], input[type="email"] { width: 100%; padding: 8px; border: 1px solid #cbd5e1; border-radius: 4px; box-sizing: border-box; }
+        button { background: var(--primary); color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; font-weight: bold; }
+        button:hover { background: var(--primary-dark); }
+        button.cancel { background: #64748b; }
+        button.cancel:hover { background: #475569; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { border: 1px solid #cbd5e1; padding: 10px; text-align: left; }
+        th { background: #e2e8f0; }
+        .actions { display: flex; gap: 10px; font-size: 18px; }
+        .btn-icon { cursor: pointer; background: none; border: none; padding: 0; font-size: 18px; }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+<div class="container">
+    <h2>Gerenciamento de Contatos</h2>
+
+    <div class="search-box">
+        <label for="searchNome">Busca</label>
+        <div style="display: flex; gap: 10px;">
+            <input type="text" id="searchNome" placeholder="Digite o nome para busca...">
+            <button id="btnBuscar">Buscar</button>
+            <button id="btnNovo" class="cancel">Novo</button>
+        </div>
+    </div>
+
+    <div class="form-box">
+        <h3 id="formTitle">Novo Contato</h3>
+        <form id="contatoForm">
+            <input type="hidden" id="contatoId">
+            <div class="form-group">
+                <label>Nome:</label>
+                <input type="text" id="nome" required>
+            </div>
+            <div class="form-group">
+                <label>Fone:</label>
+                <input type="text" id="telefone" required>
+            </div>
+            <div class="form-group">
+                <label>E-mail:</label>
+                <input type="email" id="email" required>
+            </div>
+            <button type="submit" id="btnSalvar">Salvar</button>
+            <button type="button" id="btnCancelar" class="cancel">Cancelar</button>
+        </form>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Telefone</th>
+                <th>E-mail</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody id="tabelaCorpo">
+            </tbody>
+    </table>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
