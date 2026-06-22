@@ -1,7 +1,6 @@
 // Substitua com as credenciais reais obtidas no painel do seu Supabase
-const SUPABASE_URL = "https://ngtsyzkodhotrrfxdmq.supabase.co";
+const SUPABASE_URL = "https://ngtsyzkodhotrrrfxdmq.supabase.co"; // Ajustado para 3 "R"s!
 const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5ndHN5emtvZGhvdHJycmZ4ZG1xIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIxMDM1NzksImV4cCI6MjA5NzY3OTU3OX0.Z58A5aKwZ_2hoS_cH5tlh9wJuzjm1hjm7xpnLtE5qPk";
-
 const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 // Elementos da DOM
