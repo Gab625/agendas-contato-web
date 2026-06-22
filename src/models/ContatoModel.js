@@ -1,4 +1,4 @@
-import { supabaseClient } from '../config.js';
+import { _supabaseClient } from '../config.js';
 
 export class ContatoModel {
     static async getAll(searchTerm = "") {
