@@ -65,21 +65,3 @@ Para mitigar esse risco de segurança, foram aplicadas regras rígidas de **RLS 
 * **Políticas Nomeadas (Policies):** Configuração de permissões granulares onde o acesso de leitura (`SELECT`) e escrita (`INSERT`) é controlado estritamente por regras que validam a origem da requisição, impedindo injeções de scripts e acessos não autorizados a dados de terceiros.
 
 ---
-
-## 📋 Passo a Passo e Critérios de Avaliação
-
-Esta listagem técnica serve como guia de engenharia e checklist para garantir que o projeto cumpra todos os requisitos de qualidade, performance e manutenibilidade antes de ser considerado pronto para produção.
-
-### 🧩 1. Arquitetura de Software e Organização
-- [ ] **Padrão MVC:** Separação estrita de responsabilidades em diretórios específicos (`models/`, `views/`, `controllers/`).
-- [ ] **Módulos ES6:** Uso de `type="module"` no HTML e declarações claras de `import`/`export` em JavaScript, garantindo escopo isolado para cada arquivo.
-- [ ] **Injeção de Dependências:** Centralização da instância do cliente do banco de dados em um único arquivo de configuração (`src/config.js`).
-
-### 🔒 2. Segurança e Banco de Dados
-- [ ] **Estado Padrão Restrito:** RLS ativo na tabela principal de contatos.
-- [ ] **Prevenção de Efeitos Colaterais:** Uso obrigatório de `e.preventDefault()` em eventos de formulário para interceptar o comportamento padrão de recarregamento do HTML (`POST` nativo que gera o `?` na URL).
-
-### 🚀 3. Critérios de Deploy (CI/CD)
-- [ ] **Hospedagem Estática:** Deploy configurado via Vercel associado diretamente à branch principal do GitHub.
-
-A tabela `contatos` foi configurada para bloquear qualquer operação por padrão, liberando apenas as ações estritamente necessárias por meio de políticas (Policies):
