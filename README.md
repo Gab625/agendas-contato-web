@@ -53,7 +53,7 @@ A escolha por uma infraestrutura BaaS permite que o foco total seja direcionado 
 
 ## 🛡️ Requisitos de Segurança e Boas Práticas
 
-### A Importância do RLS (Row Level Security) vs. Security Rules
+### A Importância do RLS (Row Level Security)
 Em arquiteturas tradicionais, o backend atua como um "porteiro", validando quem pode ler ou escrever no banco de dados. Em uma arquitetura Serverless/BaaS com Supabase, o frontend se conecta **diretamente** ao banco de dados utilizando uma chave de API pública (`anon key`). 
 
 Se o banco de dados não for configurado corretamente, qualquer usuário poderia inspecionar o código do navegador, copiar a chave e disparar requisições maliciosas para apagar ou vazar registros. 
